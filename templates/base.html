@@ -73,13 +73,6 @@
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
                     </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.endpoint == 'auth.login' %}active{% endif %}"
-                            href="{{ url_for('auth.login') }}">
-                            <i class="fas fa-sign-in-alt"></i> Admin Login
-                        </a>
-                    </li>
                     {% endif %}
                 </ul>
             </div>
