@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - MedCodePro{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header bg-primary-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-down">
+                <h1 class="page-title">Contact Us</h1>
+                <p class="page-subtitle">Get in Touch With Our Team</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Form -->
+            <div class="col-lg-7 mb-5 mb-lg-0" data-aos="fade-right">
+                <div class="contact-form-wrapper">
+                    <h2 class="section-title">Send Us an Enquiry</h2>
+                    <div class="section-divider"></div>
+                    <p class="mb-4">Fill out the form below and our team will get back to you within 24 hours.</p>
+
+                    <form id="enquiryForm" class="needs-validation" novalidate>
+                        <div class="mb-4">
+                            <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="phone" class="form-label">Phone Number <span
+                                    class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid phone number.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Email Address <span
+                                    class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="course" class="form-label">Course of Interest <span
+                                    class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
+                                <select class="form-select" id="course" name="course" required>
+                                    <option value="">-- Select a Course --</option>
+                                    <option value="Basic Medical Coding Training">Basic Medical Coding Training</option>
+                                    <option value="CPC Certification Training">CPC Certification Training</option>
+                                    <option value="IP-DRG Certification Training">IP-DRG Certification Training</option>
+                                    <option value="Medical Coding Services">Medical Coding Services</option>
+                                    <option value="Medical Transcription Services">Medical Transcription Services
+                                    </option>
+                                    <option value="Corporate Training">Corporate Training</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                </select>
+                            </div>
+                            <div class="invalid-feedback">Please select a course.</div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                                <span class="btn-text">
+                                    <i class="fas fa-paper-plane me-2"></i>Submit Enquiry
+                                </span>
+                                <span class="btn-loading d-none">
+                                    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                                    Submitting...
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div id="successMessage" class="alert alert-success mt-4 d-none" role="alert">
+                        <div class="success-animation">
+                            <i class="fas fa-check-circle fa-3x mb-3"></i>
+                            <h4>Thank You!</h4>
+                            <p class="mb-0">Your enquiry has been submitted successfully. Our team will contact you
+                                soon.</p>
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="errorMessage" class="alert alert-danger mt-4 d-none" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <span id="errorText"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="col-lg-5" data-aos="fade-left">
+                <div class="contact-info-wrapper">
+                    <h3 class="section-title">Contact Information</h3>
+                    <div class="section-divider"></div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Phone</h5>
+                            <p>{{ config['CONTACT_PHONE'] }}</p>
+                            <small class="text-muted">Mon-Fri: 9:00 AM - 6:00 PM</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Email</h5>
+                            <p>{{ config['CONTACT_EMAIL'] }}</p>
+                            <small class="text-muted">We'll respond within 24 hours</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Address</h5>
+                            <p>{{ config['CONTACT_ADDRESS'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="social-connect mt-4">
+                        <h5>Connect With Us</h5>
+                        <div class="social-links-large">
+                            <a href="{{ config['FACEBOOK_URL'] }}" target="_blank" class="social-link-large facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="{{ config['LINKEDIN_URL'] }}" target="_blank" class="social-link-large linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="{{ config['TWITTER_URL'] }}" target="_blank" class="social-link-large twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="{{ config['INSTAGRAM_URL'] }}" target="_blank" class="social-link-large instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section py-5 bg-light">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Visit Our Location</h2>
+            <div class="section-divider"></div>
+            <p class="section-description">Drop by our office for a campus tour or consultation</p>
+        </div>
+        <div class="map-container" data-aos="zoom-in">
+            <!-- EDIT THE src URL BELOW WITH YOUR ACTUAL GOOGLE MAPS EMBED URL -->
+            <!-- To get the embed URL:
+                 1. Go to https://www.google.com/maps
+                 2. Search for your location
+                 3. Click "Share" button
+                 4. Click "Embed a map" tab
+                 5. Copy the iframe src URL and paste it below
+            -->
+            <iframe src="{{ config['GOOGLE_MAPS_EMBED'] }}" width="100%" height="450" style="border:0;"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Contact Form Submission
+    document.getElementById('enquiryForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Validate form
+        if (!this.checkValidity()) {
+            e.stopPropagation();
+            this.classList.add('was-validated');
+            return;
+        }
+
+        // Get form data
+        const formData = new FormData(this);
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        const successMsg = document.getElementById('successMessage');
+        const errorMsg = document.getElementById('errorMessage');
+
+        // Hide previous messages
+        successMsg.classList.add('d-none');
+        errorMsg.classList.add('d-none');
+
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.classList.add('d-none');
+        btnLoading.classList.remove('d-none');
+
+        try {
+            const response = await fetch('{{ url_for("pages.contact") }}', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Show success message
+                successMsg.classList.remove('d-none');
+                // Reset form
+                this.reset();
+                this.classList.remove('was-validated');
+                // Scroll to success message
+                successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                // Show error message
+                document.getElementById('errorText').textContent = data.errors.join(', ');
+                errorMsg.classList.remove('d-none');
+            }
+        } catch (error) {
+            document.getElementById('errorText').textContent = 'An error occurred. Please try again.';
+            errorMsg.classList.remove('d-none');
+        } finally {
+            // Reset button state
+            submitBtn.disabled = false;
+            btnText.classList.remove('d-none');
+            btnLoading.classList.add('d-none');
+        }
+    });
+</script>
+{% endblock %}

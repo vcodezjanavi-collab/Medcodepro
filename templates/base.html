@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MedCodePro - Professional Medical Coding Training and Services Platform">
+    <meta name="keywords" content="medical coding, healthcare training, CPC certification, medical transcription">
+    <title>{% block title %}MedCodePro - Medical Coding Training{% endblock %}</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('pages.home') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="MedCodePro Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'pages.home' %}active{% endif %}"
+                            href="{{ url_for('pages.home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'pages.about' %}active{% endif %}"
+                            href="{{ url_for('pages.about') }}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'pages.courses' %}active{% endif %}"
+                            href="{{ url_for('pages.courses') }}">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'pages.services' %}active{% endif %}"
+                            href="{{ url_for('pages.services') }}">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'pages.contact' %}active{% endif %}"
+                            href="{{ url_for('pages.contact') }}">Contact</a>
+                    </li>
+                    {% if session.get('admin_id') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.dashboard') }}">
+                            <i class="fas fa-user-shield"></i> Dashboard
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="container mt-3">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show"
+            role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="MedCodePro Logo"
+                        class="footer-logo mb-3">
+                    <p class="text-light-gray">
+                        MedCodePro is your trusted partner for professional medical coding training and services.
+                        We help you build a successful healthcare career.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="text-primary-light mb-3">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="{{ url_for('pages.home') }}">Home</a></li>
+                        <li><a href="{{ url_for('pages.about') }}">About Us</a></li>
+                        <li><a href="{{ url_for('pages.courses') }}">Courses</a></li>
+                        <li><a href="{{ url_for('pages.services') }}">Services</a></li>
+                        <li><a href="{{ url_for('pages.contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Courses -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-primary-light mb-3">Our Courses</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="{{ url_for('pages.courses') }}#basic">Basic Medical Coding</a></li>
+                        <li><a href="{{ url_for('pages.courses') }}#cpc">CPC Certification</a></li>
+                        <li><a href="{{ url_for('pages.courses') }}#ipdrg">IP-DRG Certification</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-primary-light mb-3">Contact Us</h5>
+                    <ul class="list-unstyled contact-info">
+                        <li>
+                            <i class="fas fa-phone text-primary-light"></i>
+                            <span>{{ config['CONTACT_PHONE'] }}</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope text-primary-light"></i>
+                            <span>{{ config['CONTACT_EMAIL'] }}</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt text-primary-light"></i>
+                            <span>{{ config['CONTACT_ADDRESS'] }}</span>
+                        </li>
+                    </ul>
+
+                    <!-- Social Media -->
+                    <div class="social-links mt-3">
+                        <a href="{{ config['FACEBOOK_URL'] }}" target="_blank" class="social-icon facebook"
+                            title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="{{ config['LINKEDIN_URL'] }}" target="_blank" class="social-icon linkedin"
+                            title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="{{ config['TWITTER_URL'] }}" target="_blank" class="social-icon twitter"
+                            title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="{{ config['INSTAGRAM_URL'] }}" target="_blank" class="social-icon instagram"
+                            title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <hr class="border-secondary my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-light-gray">&copy; 2026 MedCodePro. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 text-light-gray">
+                        <a href="#" class="text-light-gray">Privacy Policy</a> |
+                        <a href="#" class="text-light-gray">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

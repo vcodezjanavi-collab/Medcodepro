@@ -1,0 +1,332 @@
+{% extends "base.html" %}
+
+{% block title %}MedCodePro - Your Career in Medical Coding Starts Here{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7" data-aos="fade-right">
+                <h1 class="hero-title">Your career in medical coding training starts here!!!</h1>
+                <p class="hero-subtitle">
+                    MedCodePro is a services and edtech platform that helps you upgrade your skills,
+                    earn certifications, and launch a high-demand career in medical coding.
+                </p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('pages.contact') }}" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-user-plus"></i> Enroll Now
+                    </a>
+                    <a href="{{ url_for('pages.courses') }}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-graduation-cap"></i> Explore Courses
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5" data-aos="fade-left">
+                <div class="hero-image">
+                    <i class="fas fa-user-md"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Counter Section -->
+<section class="stats-section py-5 bg-primary-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="zoom-in" data-aos-delay="100">
+                <div class="stat-item">
+                    <i class="fas fa-users stat-icon"></i>
+                    <h3 class="stat-number" data-count="5000">0</h3>
+                    <p class="stat-label">Students Trained</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="stat-item">
+                    <i class="fas fa-certificate stat-icon"></i>
+                    <h3 class="stat-number" data-count="95">0</h3>
+                    <p class="stat-label">% Success Rate</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300">
+                <div class="stat-item">
+                    <i class="fas fa-chalkboard-teacher stat-icon"></i>
+                    <h3 class="stat-number" data-count="50">0</h3>
+                    <p class="stat-label">Expert Trainers</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="400">
+                <div class="stat-item">
+                    <i class="fas fa-building stat-icon"></i>
+                    <h3 class="stat-number" data-count="200">0</h3>
+                    <p class="stat-label">Partner Companies</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision & Mission Section -->
+<section class="vision-mission-section py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Our Vision & Mission</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4" data-aos="fade-right">
+                <div class="feature-card vision-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>
+                        To be the leading medical coding training institute globally, empowering healthcare
+                        professionals with world-class skills and certifications that drive excellence in
+                        medical documentation and billing.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4" data-aos="fade-left">
+                <div class="feature-card mission-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>
+                        To provide comprehensive, practical, and industry-aligned medical coding training
+                        that transforms students into certified professionals ready to excel in the
+                        healthcare revenue cycle management field.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Training Section -->
+<section class="about-training-section py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                <h2 class="section-title">About Our Training</h2>
+                <div class="section-divider"></div>
+                <p class="lead">
+                    MedCodePro offers industry-leading medical coding training designed by experts
+                    with years of real-world experience in healthcare documentation and billing.
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Comprehensive curriculum aligned with industry standards
+                    </li>
+                    <li><i class="fas fa-check-circle"></i> Hands-on practical training with real case studies</li>
+                    <li><i class="fas fa-check-circle"></i> Expert instructors with healthcare industry experience</li>
+                    <li><i class="fas fa-check-circle"></i> Flexible learning schedules - weekday & weekend batches</li>
+                    <li><i class="fas fa-check-circle"></i> 100% placement assistance and career guidance</li>
+                    <li><i class="fas fa-check-circle"></i> Certification preparation for AAPC and AHIMA exams</li>
+                </ul>
+                <a href="{{ url_for('pages.about') }}" class="btn btn-primary mt-3">
+                    Learn More <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="training-image">
+                    <i class="fas fa-laptop-medical"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="why-choose-section py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Why Choose MedCodePro?</h2>
+            <div class="section-divider"></div>
+            <p class="section-description">
+                We provide more than just training – we provide a pathway to your successful career
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>Industry-Recognized Certifications</h4>
+                    <p>
+                        Prepare for AAPC CPC, CIC, and CRC certifications with our comprehensive
+                        training programs designed by industry experts.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4>Expert Faculty</h4>
+                    <p>
+                        Learn from certified medical coding professionals with 10+ years of
+                        hands-on experience in healthcare billing and coding.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h4>100% Placement Support</h4>
+                    <p>
+                        Get dedicated placement assistance with resume building, interview
+                        preparation, and direct connections to top healthcare employers.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4>Practical Training</h4>
+                    <p>
+                        Gain real-world experience with hands-on practice using actual medical
+                        records and coding software used in the industry.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Flexible Schedules</h4>
+                    <p>
+                        Choose from weekday, weekend, or online batches that fit your schedule.
+                        Learn at your own pace with lifetime access to materials.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>Lifetime Support</h4>
+                    <p>
+                        Get continuous support even after course completion with doubt clearing
+                        sessions, curriculum updates, and career guidance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section py-5 bg-light">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Student Success Stories</h2>
+            <div class="section-divider"></div>
+            <p class="section-description">Hear from our graduates who are now thriving in their careers</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="100">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "MedCodePro's CPC training program gave me the confidence and skills I needed.
+                        I passed my certification on the first attempt and landed a job within 2 months!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h5>Sarah Johnson</h5>
+                            <p>CPC Certified - Now at HealthCare Inc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="200">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "The hands-on training and expert faculty made all the difference. The placement
+                        support team helped me secure a position at a leading hospital."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h5>Michael Rodriguez</h5>
+                            <p>Medical Coder - Metro Health System</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="300">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Transitioning careers was daunting, but MedCodePro's comprehensive curriculum
+                        and supportive instructors made it smooth. Highly recommended!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h5>Priya Sharma</h5>
+                            <p>Senior Medical Coder - Global Med</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Discover More / CTA Section -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="cta-content text-center" data-aos="zoom-in">
+            <h2 class="text-white mb-4">Ready to Start Your Medical Coding Career?</h2>
+            <p class="text-white mb-4 lead">
+                Join thousands of successful medical coding professionals who started their journey with MedCodePro
+            </p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('pages.contact') }}" class="btn btn-light btn-lg me-3">
+                    <i class="fas fa-paper-plane"></i> Get Started Today
+                </a>
+                <a href="{{ url_for('pages.courses') }}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-book-open"></i> View All Courses
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
