@@ -8,9 +8,19 @@ class Config:
     
     # Database configuration
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+    
+    # Render uses 'postgres://' but SQLAlchemy needs 'postgresql://'
+    DATABASE_URL = os.environ.get('DATABASE_URL')
+    if DATABASE_URL and DATABASE_URL.startswith('postgres://'):
+        DATABASE_URL = DATABASE_URL.replace('postgres://', 'postgresql://', 1)
+    
+    SQLALCHEMY_DATABASE_URI = DATABASE_URL or \
         'sqlite:///' + os.path.join(BASE_DIR, 'database', 'medcodepro.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    
+    # Ensure database directory exists for SQLite
+    if not DATABASE_URL:
+        os.makedirs(os.path.join(BASE_DIR, 'database'), exist_ok=True)
     
     # Admin credentials (for initial setup)
     ADMIN_EMAIL = 'admin@medcodepro.com'
