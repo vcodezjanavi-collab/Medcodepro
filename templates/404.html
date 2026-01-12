@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}404 - Page Not Found | MedCodePro{% endblock %}
+
+{% block content %}
+<div class="error-page">
+    <div class="container text-center py-5">
+        <div class="error-content">
+            <h1 class="display-1 text-primary mb-4">404</h1>
+            <h2 class="mb-4">Oops! Page Not Found</h2>
+            <p class="lead mb-4">
+                The page you're looking for doesn't exist or has been moved.
+            </p>
+            <div class="error-actions">
+                <a href="{{ url_for('pages.home') }}" class="btn btn-primary btn-lg me-3">
+                    <i class="fas fa-home"></i> Go Home
+                </a>
+                <a href="{{ url_for('pages.contact') }}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .error-page {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .error-content h1 {
+        font-size: 8rem;
+        font-weight: 700;
+    }
+
+    .error-actions {
+        margin-top: 2rem;
+    }
+</style>
+{% endblock %}
