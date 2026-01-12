@@ -48,8 +48,10 @@ def create_app():
     
     return app
 
+# Create app instance for gunicorn
+app = create_app()
+
 if __name__ == '__main__':
-    app = create_app()
     print('=' * 60)
     print('MedCodePro Application Starting...')
     print('=' * 60)
